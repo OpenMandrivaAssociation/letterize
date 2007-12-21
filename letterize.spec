@@ -6,6 +6,7 @@ URL: http://www.catb.org/~esr/letterize/
 Source0: %{name}-%{version}.tar.bz2
 License: GPL
 Group: Text tools
+BuildRoot: %{_tmppath}/%{name}-root
 
 %description
 Generate all possible alphabetic mnemonics for a phone
