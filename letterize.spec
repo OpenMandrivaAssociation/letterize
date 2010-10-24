@@ -1,12 +1,12 @@
-Name: letterize
-Version: 1.2
-Release: %mkrel 8
-Summary: Generate pronounceable mnemonics from phone numbers
-URL: http://www.catb.org/~esr/letterize/
-Source0: %{name}-%{version}.tar.bz2
-License: GPL
-Group: Text tools
-BuildRoot: %{_tmppath}/%{name}-root
+Name:		letterize
+Version:	1.3
+Release:	%mkrel 1
+Summary:	Generate pronounceable mnemonics from phone numbers
+URL:		http://www.catb.org/~esr/letterize/
+Source0:	%{name}-%{version}.tar.gz
+License:	GPLv2+
+Group:		Text tools
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}
 
 %description
 Generate all possible alphabetic mnemonics for a phone
@@ -23,18 +23,18 @@ cc $RPM_OPT_FLAGS letterize.c -o letterize
 ## make letterize.1
 
 %install
-[ "$RPM_BUILD_ROOT" -a "$RPM_BUILD_ROOT" != / ] && rm -rf "$RPM_BUILD_ROOT"
-mkdir -p "$RPM_BUILD_ROOT"/usr/bin
-mkdir -p "$RPM_BUILD_ROOT"/usr/share/man/man1/
-cp letterize "$RPM_BUILD_ROOT"/usr/bin
-cp letterize.1 "$RPM_BUILD_ROOT"/usr/share/man/man1/
+rm -rf %buildroot 
+mkdir -p %buildroot/usr/bin
+mkdir -p %buildroot/usr/share/man/man1/
+cp %{name}  %buildroot/usr/bin
+cp %{name}.1 %buildroot/usr/share/man/man1/
 
 %clean
-[ "$RPM_BUILD_ROOT" -a "$RPM_BUILD_ROOT" != / ] && rm -rf "$RPM_BUILD_ROOT"
+rm -rf %buildroot
 
 %files
 %defattr(-,root,root)
 %doc README COPYING
-%{_mandir}/man1/letterize.1*
-%{_bindir}/letterize
+%{_mandir}/man1/%{name}.1*
+%{_bindir}/%{name}
 
