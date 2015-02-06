@@ -1,6 +1,6 @@
 Name:		letterize
 Version:	1.3
-Release:	%mkrel 1
+Release:	2
 Summary:	Generate pronounceable mnemonics from phone numbers
 URL:		http://www.catb.org/~esr/letterize/
 Source0:	%{name}-%{version}.tar.gz
